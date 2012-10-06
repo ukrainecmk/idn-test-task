@@ -16,6 +16,7 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
+        'application.extensions.*',
 	),
 
 	'defaultController'=>'post',
@@ -32,7 +33,7 @@ return array(
 		),*/
 		// uncomment the following to use a MySQL database
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=yii_test',
+			'connectionString' => 'mysql:host=localhost;dbname=yii_blog',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '11111111',
