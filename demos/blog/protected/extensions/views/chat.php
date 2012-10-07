@@ -2,11 +2,12 @@
     .cBox {
         width: 540px;
         height: 300px;
-        float: right;
+        /*float: left;*/
         background-color: #FFFFFF;
-        position: absolute;
-        left: 895px;
         top: 130px;
+        position: absolute;
+        left: -330px;
+        top: -110px;
     }
     .cBox div {
         border: 2px solid #298DCD;
@@ -19,11 +20,11 @@
         font-weight: bold;
         line-height: 275px;
         cursor: pointer;
-        float: right;
+        float: left;
     }
     .cContent {
         width: 512px; /*hidden at the begining*/
-        float: right;
+        float: left;
         /*display: none;*/
     }
     .cToggleButton, .cContent {
@@ -54,15 +55,19 @@
     .cMsgList {
         font-size: 12px;
     }
+    .cPortletParrent {
+        position: relative;
+    }
 </style>
 <script type="text/javascript">
 // <!--
 jQuery(document).ready(function(){
     jQuery('.cToggleButton').click(function(){
-        var hide = jQuery('.cContent').width() ? true : false;  //show or hide content
+        //jQuery('.cBox').show("slide", { direction: "left" }, 1000);
+        var hide = jQuery('.cBox').width() == 540 ? true : false;  //show or hide content
         jQuery(this).html( hide ? '<' : '>');
-        jQuery('.cContent').animate({
-            width: hide ? 0 : 512
+        jQuery('.cBox').animate({
+            width: hide ? 20 : 540
         }, 1000, function(){
             if(hide) {
                 jQuery('.cContent').hide();
@@ -109,6 +114,7 @@ function cScrollChat() {
 // -->
 </script>
 <div class="cBox">
+    <div class="cToggleButton"><</div>
     <div class="cContent">
         <div class="cMessages"></div>
         <div class="cInputBox">
@@ -130,6 +136,5 @@ function cScrollChat() {
             <div class="cErrors"></div>
         </div>
     </div>
-    <div class="cToggleButton"><</div>
 </div>
 <div style="clear: both"></div>
