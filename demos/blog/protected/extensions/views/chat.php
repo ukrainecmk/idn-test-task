@@ -1,16 +1,18 @@
 <style type="text/css">
-    .cBox {
+    .cPortletParrent {
         width: 540px;
-        height: 300px;
+        height: 304px;
         /*float: left;*/
-        background-color: #FFFFFF;
+        /*background-color: #FFFFFF;*/
         top: 130px;
         position: absolute;
         left: -330px;
         top: -110px;
+        overflow: hidden;
     }
     .cBox div {
         border: 2px solid #298DCD;
+        background-color: #FFFFFF;
     }
     .cToggleButton {
         width: 20px;
@@ -21,21 +23,26 @@
         line-height: 275px;
         cursor: pointer;
         float: left;
+        height: 296px;
     }
     .cContent {
-        width: 512px; /*hidden at the begining*/
-        float: left;
+        /*width: 512px;*/ /*hidden at the begining*/
+        /*float: left;*/
         /*display: none;*/
     }
-    .cToggleButton, .cContent {
+    .cContent {
         height: 300px;
     }
     .cMessages {
         height: 260px;
         overflow-y: scroll;
+        width: 508px;
+        float: right;
     }
     .cInputBox {
         height: 32px;;
+        float: right;
+        width: 508px;
     }
     .cFormElementBox {
         float: left;
@@ -66,15 +73,22 @@ jQuery(document).ready(function(){
         //jQuery('.cBox').show("slide", { direction: "left" }, 1000);
         var hide = jQuery('.cBox').width() == 540 ? true : false;  //show or hide content
         jQuery(this).html( hide ? '<' : '>');
-        jQuery('.cBox').animate({
+       /* jQuery('.cBox').animate({
             width: hide ? 20 : 540
         }, 1000, function(){
             if(hide) {
                 jQuery('.cContent').hide();
             }
+        });*/
+        jQuery('.cContent').animate({
+            marginLeft: hide ? 220 : 540
+        }, 1000, function(){
+            if(hide) {
+                //jQuery('.cContent').hide();
+            }
         });
          if(!hide) {
-            jQuery('.cContent').show();
+            //jQuery('.cContent').show();
             cScrollChat();
         }
     });
@@ -114,9 +128,9 @@ function cScrollChat() {
 // -->
 </script>
 <div class="cBox">
-    <div class="cToggleButton"><</div>
     <div class="cContent">
-        <div class="cMessages"></div>
+        <div class="cToggleButton"><</div>
+        <div class="cMessages"></div><br stile="clear: both;" />
         <div class="cInputBox">
             <?php 
             $model=new Messages;
