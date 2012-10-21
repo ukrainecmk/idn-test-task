@@ -1,0 +1,73 @@
+.cPortletParrent {
+    width: 540px;
+    height: 306px;
+    top: 130px;
+    position: absolute;
+    left: -330px;
+    top: -110px;
+    overflow: hidden;
+}
+.cFormElementBox {
+    float: left;
+    margin: 3% 10% 0 10%;
+}
+.cLoader {
+    background-image: url(../images/loader.gif) !important;
+    width: 16px !important;
+    height: 16px !important;
+}
+.cMsgList {
+    font-size: 12px;
+}
+.cPortletParrent {
+    position: relative;
+}
+.cContent td, .cContent th {
+    padding: 0;
+}
+.cContent {
+    height: 310px;
+    background-color: white;
+    margin-left: 520px;
+}
+.cMessages {
+    height: 300px;
+    width: 518px;
+    float: right;
+    border:  3px solid #B5D7E7;
+}
+.cMessagesText {
+    height: 250px;
+    overflow-y: scroll;
+    border-bottom: 2px solid #B5D7E7;
+}
+.cToggleButton {
+    cursor: pointer;
+    width: 16px;
+    background-image: url(../images/chat-opener-1.png);
+    float: left;
+    height: 100%;
+}
+.cToggleButton.cButtonOpened {
+    background-image: url(../images/chat-opener-2.png);
+}
+.cInputBox {
+    height: 50px;
+}
+#Messages_msg {
+    margin-top: 7px;
+    margin-bottom: 9px;
+    margin-left: 10px;
+    width: 370px;
+    height: 21px;
+    border:  3px solid #B5D7E7;
+}
+.cInputBox input[type=submit]{
+    background-image: url(../images/send-button.png);
+    border: 0;
+    width: 115px;
+    height: 34px;
+    margin-top: 4px;
+    margin-right: 8px;
+    margin-left: 7px;
+}

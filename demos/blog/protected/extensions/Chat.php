@@ -13,9 +13,18 @@ class Chat extends CPortlet
     }
     protected function renderDecoration()
     {
+        Yii::app()->clientScript->registerScript(
+          'chat-config-js',
+          'var cRefreshUrl = "'. Yii::app()->createUrl('//messages/refresh'). '";',
+          CClientScript::POS_HEAD
+        );
+        Yii::app()->clientScript->registerScriptFile(
+            Yii::app()->baseUrl . '/js/chat.js',
+        CClientScript::POS_END
+        );
+
         $this->contentCssClass = 'cPortletParrent';
         Yii::app()->getClientScript()->registerCoreScript('jquery');
-        //will not use title showing
     }
 }
 ?>

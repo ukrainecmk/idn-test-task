@@ -12,6 +12,7 @@
  */
 class Messages extends CActiveRecord
 {
+    public $isCurrentUser = false;
     protected function beforeSave()
     {
         if(parent::beforeSave())
@@ -22,6 +23,7 @@ class Messages extends CActiveRecord
                 $this->author_id = Yii::app()->user->id;
                 $this->ip = Yii::app()->request->userHostAddress;
             }
+            $this->msg = stripslashes(htmlspecialchars($this->msg));
             return true;
         }
         else
@@ -77,11 +79,19 @@ class Messages extends CActiveRecord
     protected function afterFind()
 	{
 		parent::afterFind();
+        $this->isCurrentUser = false;
+        
         //For guests
         if(empty($this->author)) {
             $this->author = new stdClass();
             $this->author->username = 'Guest';
+            if($this->ip == Yii::app()->request->userHostAddress) {
+                $this->isCurrentUser = true;
+            }
+        } elseif(Yii::app()->user->id == $this->author->id) {
+            $this->isCurrentUser = true;
         }
+        $this->msg = wordwrap($this->msg, 20, '<br />', true);
 	}
 
 	/**
