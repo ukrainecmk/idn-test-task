@@ -71,3 +71,13 @@ INSERT INTO tbl_comment (content, status, create_time, author, email, post_id) V
 INSERT INTO tbl_tag (name) VALUES ('yii');
 INSERT INTO tbl_tag (name) VALUES ('blog');
 INSERT INTO tbl_tag (name) VALUES ('test');
+
+CREATE TABLE IF NOT EXISTS `tbl_messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `msg` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
+  `author_id` int(11) NOT NULL DEFAULT '0',
+  `ip` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `create_time` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `author_id` (`author_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
